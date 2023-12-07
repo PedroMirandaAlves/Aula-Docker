@@ -8,3 +8,4 @@ RUN apt-get clean
 RUN rm -rf /var/lib/apt/lists/*
 WORKDIR /app
 WORKDIR /tools
+COPY codigo.txt /app/
