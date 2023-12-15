@@ -11,5 +11,7 @@ RUN apt-get clean
 RUN rm -rf /var/lib/apt/lists/*
 WORKDIR /app
 WORKDIR /tools
-COPY --chown=pedro:pedro --chmod=777 codigo.txt /app/
-USER pedro
+#COPY --chown=pedro:pedro --chmod=777 codigo.txt /app/
+#COPY --chown=root:root --chmod=100 entrypoint.sh .
+#ENTRYPOINT [ "./entrypoint.sh" ]
+#CMD [ "XPTO" ]
