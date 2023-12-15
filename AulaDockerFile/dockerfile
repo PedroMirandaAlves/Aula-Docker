@@ -1,6 +1,9 @@
 FROM ubuntu
+RUN useradd pedro
+EXPOSE 80
 LABEL maintainer="PedroVaca"
 RUN apt update 
+RUN apt install nginx -y
 RUN apt install curl --yes 
 RUN apt install vim --yes
 RUN apt update && apt install net-tools -y
@@ -8,4 +11,5 @@ RUN apt-get clean
 RUN rm -rf /var/lib/apt/lists/*
 WORKDIR /app
 WORKDIR /tools
-COPY codigo.txt /app/
+COPY --chown=pedro:pedro --chmod=777 codigo.txt /app/
+USER pedro
